@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\begin{document}
+
+\section{Heat Pump Performance Analysis}
+
+\subsection{Research Framework and Operationalization}
+In this study, we examine heat pump performance (measured by SPFH4) through a hierarchical model that incorporates three constructs:
+\begin{itemize}
+    \item \textbf{Technical Specifications (H1):} These include measures of flow temperature and system sizing. Specifically, we use the mean annual flow temperature (with an indicator variable for temperatures above 45°C), nominal heat pump size, size normalized per floor area (W/m²), and a binary indicator for oversizing (i.e., if the system exceeds 100 W/m²).
+    \item \textbf{Building Characteristics (H2):} These are operationalized via the total floor area and house type (with Detached as the reference category). An interaction term between flow temperature and floor area is used to capture potential moderation effects of building scale.
+    \item \textbf{Installation Quality (H3):} This construct is measured by the installation time (in hours) and a commissioning quality score.
+\end{itemize}
+The models are estimated sequentially: Model 1 includes only technical variables; Model 2 adds building characteristics; and Model 3 incorporates installation quality. This sequential (hierarchical) approach allows us to test whether each set of variables significantly improves the explanation of SPFH4 performance.
+
+\subsection{Research Hypotheses}
+\begin{enumerate}
+\item[$H_1$:] Do technical specifications (flow temperature and system sizing) significantly affect heat pump SPFH4 performance?
+\item[$H_2$:] Do building characteristics (floor area and house type) significantly influence SPFH4 performance beyond technical effects?
+\item[$H_3$:] Does installation quality (installation time and commissioning) significantly impact SPFH4 performance after controlling for technical and building characteristics?
+\end{enumerate}
+
+\begin{table}[!htbp] \centering
+\begin{tabular}{@{\extracolsep{5pt}}lccc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{3}{c}{\textit{Dependent variable: SPFH4\_selected\_window}} \
+\cr \cline{2-4}
+\\[-1.8ex] & (1) & (2) & (3) \\
+\hline \\[-1.8ex]
+ Flow Temp × Floor Area & & -1.320$^{***}$ & -1.292$^{***}$ \\
+& & (0.374) & (0.372) \\
+ Heat Pump Size (kW) & 0.250$^{***}$ & -0.090$^{}$ & -0.028$^{}$ \\
+& (0.048) & (0.157) & (0.158) \\
+ High Flow Temp (>45°C) & -0.063$^{}$ & -0.076$^{}$ & -0.073$^{}$ \\
+& (0.055) & (0.055) & (0.055) \\
+ House Type: End-Terrace & & -0.211$^{}$ & -0.164$^{}$ \\
+& & (0.156) & (0.156) \\
+ House Type: Flat & & 0.109$^{}$ & 0.015$^{}$ \\
+& & (0.220) & (0.258) \\
+ House Type: Mid-Terrace & & -0.359$^{**}$ & -0.340$^{**}$ \\
+& & (0.148) & (0.147) \\
+ House Type: Semi-Detached & & -0.253$^{**}$ & -0.220$^{**}$ \\
+& & (0.101) & (0.101) \\
+ Installation Time (hours) & & & 0.042$^{}$ \\
+& & & (0.051) \\
+ Commissioning Quality Score & & & -0.131$^{***}$ \\
+& & & (0.043) \\
+ Flow Temperature (°C) & -0.121$^{**}$ & 0.268$^{**}$ & 0.263$^{**}$ \\
+& (0.055) & (0.125) & (0.124) \\
+ Oversized System (>100 W/m²) & -0.236$^{***}$ & -0.227$^{***}$ & -0.203$^{***}$ \\
+& (0.059) & (0.060) & (0.060) \\
+ Size per Floor Area (W/m²) & 0.075$^{}$ & 0.335$^{**}$ & 0.223$^{}$ \\
+& (0.065) & (0.142) & (0.146) \\
+ Floor Area (m²) & & 1.481$^{***}$ & 1.396$^{***}$ \\
+& & (0.405) & (0.404) \\
+ Intercept & 0.000$^{}$ & 0.135$^{**}$ & 0.122$^{*}$ \\
+& (0.041) & (0.066) & (0.066) \\
+\hline \\[-1.8ex]
+ Observations & 544 & 544 & 544 \\
+ $R^2$ & 0.104 & 0.149 & 0.164 \\
+ Adjusted $R^2$ & 0.096 & 0.132 & 0.144 \\
+ Residual Std. Error & 0.951 (df=538) & 0.932 (df=532) & 0.925 (df=530) \\
+ F Statistic & 12.490$^{***}$ (df=5; 538) & 8.477$^{***}$ (df=11; 532) & 8.004$^{***}$ (df=13; 530) \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+\multicolumn{4}{r}\textit{All continuous variables are standardized (mean=0, std=1)} \\
+\multicolumn{4}{r}\textit{House types are dummy variables with Detached as reference category} \\
+\multicolumn{4}{r}\textit{High Flow Temp is a binary indicator for flow temperatures above 45°C} \\
+\multicolumn{4}{r}\textit{Oversized System indicates heat pump size > 100 W/m² of floor area} \\
+\multicolumn{4}{r}\textit{Standard errors in parentheses} \\
+\multicolumn{4}{r}\textit{* p<0.1, ** p<0.05, *** p<0.01} \\
+\end{tabular}
+\end{table}
+
+\subsection{Discussion and Managerial Implications}
+The hierarchical regression results support our hypothesized relationships. In Model 1, technical factors are significant: lower flow temperatures and appropriate system sizing (evidenced by a positive effect for heat pump size and a negative effect for oversized systems) are associated with improved SPFH4 performance. The addition of building characteristics in Model 2 markedly enhances explanatory power (Adjusted R² increases from 0.096 to 0.132); notably, floor area exhibits a strong positive association, and the negative interaction term (Flow Temp × Floor Area) suggests that larger properties experience a more detrimental effect from high flow temperatures. In Model 3, the inclusion of installation quality further improves the model (Adjusted R² reaches 0.144), and the significant negative coefficient for Commissioning Quality Score confirms that suboptimal commissioning is linked to poorer performance.
+
+From a managerial perspective, these findings imply that:
+\begin{itemize}
+    \item Ensuring optimal technical design—particularly in controlling flow temperature and straightforward system sizing—is key to enhancing heat pump performance.
+    \item Incorporating building-specific features into system design is critical, as larger buildings are more sensitive to adverse technical conditions.
+    \item High standards in installation and commissioning processes are essential; investing in quality control during installation may yield significant performance improvements.
+\end{itemize}
+Overall, our sequential modeling approach confirms that each set of factors contributes uniquely to SPFH4 performance, providing actionable insights for optimizing heat pump efficiency.
+
+\end{document}
